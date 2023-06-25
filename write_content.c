@@ -35,7 +35,7 @@ int print_string(va_list args)
 }
 
 /**
- * print_integer - Prints an integer
+ * print_percent - Prints a perecntage sign
  * @args: list of arguments
  * Return: Will return the amount of characters printed.
  */

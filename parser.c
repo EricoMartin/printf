@@ -3,7 +3,7 @@
 /**
  * parser - converts strings into formatted strings to be printed
  * @format: the format code for the string
- * @f_list: a sructured list of character formats 
+ * @funct_list: a sructured list of character formats
  * @args: A list containing all the argumentents passed to the program.
  * Return: A total count of the characters printed.
  */
