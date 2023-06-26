@@ -75,10 +75,10 @@ int print_num(va_list args)
 		n = numb * -1; /* This will evaluate to zero*/
 	}
 
-	for ( ; n / i > 9; )
+	while (n / i > 9)
 		i = i * 10;
 
-	for ( ; i != 0; ) /* While iterator is not equal to zero */
+	while (i != 0) /* While iterator is not equal to zero */
 	{
 		count = count + _putchar('0' + n / i);
 		n = n % i; /* base condition for reducing n */
