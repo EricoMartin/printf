@@ -76,7 +76,7 @@ int print_i(va_list args)
         for (i; i >= 0; i--) /* for sends the  array's content to stdoout */
         {
                 x[0] = ('0' + my_arr[i]); /* convers int into char*/
-                count += write(i, x, i);
+                count += write(1, x, 1);
         }
 
         return (count);
