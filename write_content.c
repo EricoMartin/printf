@@ -53,7 +53,7 @@ int print_percent(__attribute__((unused)) va_list args)
  * Return: characters number if successful
  */
 
-int print_i(va_list args)
+int print_num(va_list args)
 {
         int i = 1;
         int count = 0;
@@ -65,24 +65,34 @@ int print_i(va_list args)
         if (numb > 0)
 
 	{
-		n = numb;
+		n = numb; /* This will assign an integer that is not negative */
 	}
 	else
 	{
 		count = count + _putchar('-');
-		n = numb * -1;
+		n = numb * -1; /* This will evaluate to zero*/
 	}
 
 	while (n/i > 9)
-		i = i * 10;
+		i = i * 10; /* while the number is greater than, multiply the iterator by 10
+			       this will help to do correct printing of the number in 10s, 100s, 1000s, etc */
 	
-	while (i != 0)
+	while (i != 0) /* While iterator is not equal to zero */
 	{
+		/* assign counts the value of itself in addition to the evaluation of zero
+		   plus the number divided by the iterator value */
 		count = count + _putchar('0' + n / i);
-		n = n % i;
-		i = i / 10;
+		n = n % i; /* base condition for reducing n */
+		i = i / 10; /* base condition for reducing i */
 	}
 	
 
 	return (count);
+}
+int print_i(va_list args)
+{
+        int n;
+
+        n = print_num(args);
+        return (n);
 }
