@@ -55,30 +55,39 @@ int print_percent(__attribute__((unused)) va_list args)
 
 int print_i(va_list args)
 {
-        int i = 0;
+        int i = 1;
         int count = 0;
         int numb;
-        int my_arr[10];
-        char x[1];
+	unsigned int n;
+
 
         numb = va_arg(args, int); /* this looks for integer from variadic parameters */
 
-        while (numb != 0) /* this breaks the numbers into bits and places them in an array*/
+        if (numb > 0) 
         {
-                my_arr[i] = (numb % 10);
-                numb = numb / 10;
-                if (numb == 0)
-                        break;
-                else
-                        i++;
+                
+		n = numb; /* This will assign an integer that is not negative */
         }
+	else
+	{
+		count = count + _putchar('-');
+		n = numb * -1; /* This will evaluate to zero */
+	}
 
-        while (i >= 0)
-		       	i--; /*sends the  array's content to stdoout */
-        {
-                x[0] = ('0' + my_arr[i]); /* convers int into char*/
-                count += write(1, x, 1);
-        }
+        while (n/i > 9)
+		i = i * 10; /* While the number is greater than 9 multiply our iterator by 10 
+			     * This will help to do proper printing of the number
+			     * ie. Tens, Hundreds, Thousands etc.
+			     */
+
+	while (i != 0) /* While iterator is not equal to zero */
+	{
+		/* Assign count the value of itself in addition to the evaluation of 0 plus
+		 * the number divided by the iterator value  */
+		count = count + _putchar('0' + n / i);
+		n = n % i; /* base condition for reducing n */
+		i = i / 10; /* base condition for reducing i */
+	}
 
         return (count);
 }
