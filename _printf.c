@@ -16,6 +16,8 @@ int _printf(const char *format, ...)
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent},
+		{"i", print_i},
+		{"d", print_dec},
 		{NULL, NULL}
 	};
 
@@ -34,5 +36,3 @@ int _printf(const char *format, ...)
 
 	return (output_chars);
 }
-
-
