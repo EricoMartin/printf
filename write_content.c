@@ -55,30 +55,34 @@ int print_percent(__attribute__((unused)) va_list args)
 
 int print_i(va_list args)
 {
-        int i = 0;
+        int i = 1;
         int count = 0;
         int numb;
-        int my_arr[10];
-        char x[1];
+        unsigned int n;
 
         numb = va_arg(args, int); /* this looks for integer from variadic parameters */
 
-        while (numb != 0) /* this breaks the numbers into bits and places them in an array*/
-        {
-                my_arr[i] = (numb % 10);
-                numb = numb / 10;
-                if (numb == 0)
-                        break;
-                else
-                        i++;
-        }
+        if (numb > 0)
 
-        while (i >= 0)
-		       	i--; /*sends the  array's content to stdoout */
-        {
-                x[0] = ('0' + my_arr[i]); /* convers int into char*/
-                count += write(1, x, 1);
-        }
+	{
+		n = numb;
+	}
+	else
+	{
+		count = count + _putchar('-');
+		n = numb * -1;
+	}
 
-        return (count);
+	while (n/i > 9)
+		i = i * 10;
+	
+	while (i != 0)
+	{
+		count = count + _putchar('0' + n / i);
+		n = n % i;
+		i = i / 10;
+	}
+	
+
+	return (count);
 }
