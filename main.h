@@ -16,12 +16,12 @@ struct convert
 	char *symbol;
 	int (*f)(va_list);
 };
-typedef struct convert converter;
+typedef struct convert conver_t;
 
 int _printf(const char *format, ...);
 int _putchar(char c);
 void _vprintf(const char *format, va_list args);
-int parser(const char *format, converter funct_list[], va_list args);
+int parser(const char *format, conver_t funct_list[], va_list args);
 int print_char(va_list);
 int print_string(va_list args);
 int print_percent(va_list);

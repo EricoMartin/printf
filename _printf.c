@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 {
 	int output_chars;
 
-	converter funct_list[] =	{
+	conver_t funct_list[] =	{
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent},
