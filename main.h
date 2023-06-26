@@ -26,7 +26,6 @@ int parser(const char *format, converter funct_list[], va_list args);
 int print_char(va_list);
 int print_string(va_list args);
 int print_percent(va_list);
-int print_i(va_list args);
-int print_num(va_list args);
+int print_i(va_list);
 
 #endif
