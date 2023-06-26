@@ -55,12 +55,14 @@ int print_percent(__attribute__((unused)) va_list args)
 
 int print_num(va_list args)
 {
-	int i = 1;
-	int count = 0;
+	int i;
+	int count;
 	int numb;
 	unsigned int n;
 
 	numb = va_arg(args, int);
+	i = 1;
+	count = 0;
 
 	if (numb > 0)
 
