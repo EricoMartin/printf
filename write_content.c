@@ -47,7 +47,7 @@ int print_percent(__attribute__((unused)) va_list args)
 }
 
 /**
- * print_i - this prints a specified integer from variadic parameters
+ * print_num - this prints a specified integer from variadic parameters
  * @args: variadic parameter
  *
  * Return: characters number if successful
@@ -55,14 +55,14 @@ int print_percent(__attribute__((unused)) va_list args)
 
 int print_num(va_list args)
 {
-        int i = 1;
-        int count = 0;
-        int numb;
-        unsigned int n;
+	int i = 1;
+	int count = 0;
+	int numb;
+	unsigned int n;
 
-        numb = va_arg(args, int); /* this looks for integer from variadic parameters */
+	numb = va_arg(args, int);
 
-        if (numb > 0)
+	if (numb > 0)
 
 	{
 		n = numb; /* This will assign an integer that is not negative */
@@ -73,22 +73,24 @@ int print_num(va_list args)
 		n = numb * -1; /* This will evaluate to zero*/
 	}
 
-	while (n/i > 9)
-		i = i * 10; /* while the number is greater than, multiply the iterator by 10
-			       this will help to do correct printing of the number in 10s, 100s, 1000s, etc */
-	
+	while (n / i > 9)
+		i = i * 10;
+
 	while (i != 0) /* While iterator is not equal to zero */
 	{
-		/* assign counts the value of itself in addition to the evaluation of zero
-		   plus the number divided by the iterator value */
 		count = count + _putchar('0' + n / i);
 		n = n % i; /* base condition for reducing n */
 		i = i / 10; /* base condition for reducing i */
 	}
-	
-
 	return (count);
 }
+
+/**
+ * print_i - print formatted characters
+ * @args: variable argument list
+ * Return: an Integer charcter
+ */
+
 int print_i(va_list args)
 {
 	int n;
