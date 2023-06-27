@@ -28,6 +28,7 @@ int print_percent(va_list);
 int print_num(va_list args);
 int print_i(va_list args);
 int print_binary(va_list);
+int unsigned_integer(va_list);
 
 unsigned int base_len(unsigned int, int);
 char *rev_string(char *);
