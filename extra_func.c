@@ -22,7 +22,7 @@ int print_unsgined_number(unsigned int n)
 
 	for (; div != 0; )
 	{
-		len += _write_char('0' + num / div);
+		len += _putchar('0' + num / div);
 		num %= div;
 		div /= 10;
 	}
