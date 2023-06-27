@@ -64,15 +64,15 @@ int print_num(va_list args)
 	i = 1;
 	count = 0;
 
-	if (numb > 0)
+	if (numb < 0)
 
 	{
-		n = numb; /* This will assign an integer that is not negative */
+		count = count + _putchar('-');
+                n = numb * -1; /* This will evaluate to zero*/
 	}
 	else
 	{
-		count = count + _putchar('-');
-		n = numb * -1; /* This will evaluate to zero*/
+		n = numb; /* This will assign an integer that is not negative */
 	}
 
 	while (n / i > 9)
