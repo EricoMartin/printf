@@ -44,7 +44,7 @@ int print_binary(va_list list)
 
 	num = va_arg(list, unsigned int);
 	if (num == 0)
-		return (_write_char('0'));
+		return (_putchar('0'));
 	if (num < 1)
 		return (-1);
 	len = base_len(num, 2);
@@ -88,3 +88,4 @@ int unsigned_integer(va_list list)
 		return (-1);
 	return (print_unsgined_number(num));
 }
+
