@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_char - Prints character
@@ -99,4 +100,65 @@ int print_i(va_list args)
 
 	n = print_num(args);
 	return (n);
+}
+
+/**
+ * unsigned_integer - Prints Unsigned integers
+ * @list: List of all of the argumets
+ * Return: a count of the numbers
+ */
+int unsigned_integer(va_list list)
+{
+	unsigned int num;
+
+	num = va_arg(list, unsigned int);
+
+	if (num == 0)
+		return (print_unsgined_number(num));
+
+	if (num < 1)
+		return (-1);
+	return (print_unsgined_number(num));
+}
+
+/**
+ * print_binary - Converts a number from base 10 to binary
+ * @list: List of arguments passed to this function
+ * Return: The length of the number printed
+ */
+int print_binary(va_list list)
+{
+	unsigned int num;
+	int i, len;
+	char *str;
+	char *rev_str;
+
+	num = va_arg(list, unsigned int);
+	if (num == 0)
+		return (_write_char('0'));
+	if (num < 1)
+		return (-1);
+	len = base_len(num, 2);
+	str = malloc(sizeof(char) * len + 1);
+	if (str == NULL)
+		return (-1);
+
+	i = 0;
+	while (num > 0)
+	{
+		if (num % 2 == 0)
+			str[i] = '0';
+		else
+			str[i] = '1';
+		num = num / 2;
+	i++;
+	}
+	str[i] = '\0';
+	rev_str = rev_string(str);
+	if (rev_str == NULL)
+		return (-1);
+	write_base(rev_str);
+	free(str);
+	free(rev_str);
+	return (len);
 }
